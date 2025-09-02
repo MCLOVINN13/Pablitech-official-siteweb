@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Servicio profesional de reparación de computadoras, celulares, tablets, consolas y más.">
+  <title>Pablitech©</title>
+
+  <!-- Fuente Poppins de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Contenedor para el fondo de partículas (si se desea implementar con JS) -->
+  <div id="particles-background"></div>
+
+  <!-- Encabezado de la página -->
+  <header class="header">
+    <h1 id="logo" class="logo">
+      <span class="pabli">Pabli</span><span class="tech">tech</span>
+    </h1>
+    <!-- Botones de inicio de sesión y registro -->
+    <div class="header-buttons">
+      <a href="#sesion" class="neon-btn header-btn white-glow">Iniciar Sesión</a>
+      <a href="#sesion" class="neon-btn header-btn white-glow">Registrarse</a>
+    </div>
+  </header>
+
+  <!-- Menú lateral de navegación -->
+  <nav class="side-menu" id="sideMenu">
+    <ul>
+      <li><a href="#inicio" class="neon-btn mini neon-glow-cyan">Inicio</a></li>
+      <li><a href="#servicios" class="neon-btn mini neon-glow-pink-violet">Servicios</a></li>
+      <li><a href="#acerca" class="neon-btn mini neon-glow-green-yellow">Acerca de</a></li>
+      <li><a href="#contacto" class="neon-btn mini neon-glow-cyan">Contacto</a></li>
+      <li><a href="#sesion" class="neon-btn mini neon-glow-pink-violet">Sesión</a></li>
+    </ul>
+  </nav>
+
+  <!-- Botón flotante para abrir/cerrar el menú lateral -->
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <!-- Contenido principal de la página -->
+  <main>
+    <!-- Sección de inicio -->
+    <section id="inicio" class="screen">
+      <h2>Bienvenido a <span class="pabli">Pabli</span><span class="tech">tech©</span></h2>
+      <p>Reparación profesional de computadoras, celulares, tablets, laptops y consolas.</p>
+      <a href="#servicios" class="neon-btn blue neon-glow-green-yellow">Explorar Servicios</a>
+    </section>
+
+    <!-- Sección de servicios -->
+    <section id="servicios" class="screen">
+      <h2>Nuestros Servicios</h2>
+      <ul>
+        <li>Reparación de celulares y tablets</li>
+        <li>Mantenimiento de computadoras</li>
+        <li>Limpieza interna y cambio de pasta térmica</li>
+        <li>Formateo e instalación de sistema operativo</li>
+        <li>Reparación de consolas</li>
+        <li>Diagnóstico gratuito</li>
+      </ul>
+    </section>
+
+    <!-- Sección "Acerca de nosotros" -->
+    <section id="acerca" class="screen">
+      <h2>Sobre Nosotros</h2>
+      <p>Somos técnicos especializados con años de experiencia ofreciendo soluciones reales y efectivas.</p>
+    </section>
+
+    <!-- Sección de contacto con formulario -->
+    <section id="contacto" class="screen">
+      <h2>Contacto</h2>
+      <form>
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo" required>
+        <textarea placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit" class="neon-btn red neon-glow-pink-violet">Enviar</button>
+      </form>
+    </section>
+
+    <!-- Sección de inicio de sesión -->
+    <section id="sesion" class="screen">
+      <h2>Iniciar Sesión</h2>
+      <form>
+        <input type="text" placeholder="Usuario" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit" class="neon-btn violet neon-glow-cyan">Entrar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; Todos los derechos reservados.  Pablitech©, 2025.</p>
+  </footer>
+
+  <!-- Script principal de JavaScript para interacciones -->
+  <script src="script.js"></script>
+</body>
+</html>
