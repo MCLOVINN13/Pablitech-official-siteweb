@@ -1,0 +1,422 @@
+/* Variables CSS para colores y tipografía */
+:root {
+  --color-dark-bg: #121212;
+  --color-medium-bg: #1a1a1a;
+  --color-light-text: #e5e5e5;
+  --color-subtle-text: #aaa;
+  --color-header-bg: rgba(18, 18, 18, 0.85);
+
+  --color-pabli-start: #ffb800;
+  --color-pabli-end: #ff6a00;
+  --color-tech-start: #00d4ff;
+  --color-tech-end: #0077ff;
+  --color-neon-blue-light: rgba(0, 200, 255, 0.4);
+  --color-neon-blue-main: #00d4ff;
+  --color-neon-blue-accent: #0077ff;
+
+  --font-poppins: 'Poppins', sans-serif;
+
+  --spacing-unit: 1rem;
+
+  /* Combinaciones de glow para botones generales (bordes) - Más realistas y oscuras */
+  --neon-glow-cyan: linear-gradient(90deg, rgba(0, 188, 212, 0.2), #00E5FF, rgba(0, 188, 212, 0.2)); /* Cian vibrante que desvanece a oscuro */
+  --neon-glow-pink-violet: linear-gradient(90deg, rgba(213, 0, 249, 0.2), #FF4081, rgba(213, 0, 249, 0.2)); /* Rosa vibrante que desvanece a violeta */
+  --neon-glow-green-yellow: linear-gradient(90deg, rgba(105, 240, 174, 0.2), #FFFF00, rgba(105, 240, 174, 0.2)); /* Amarillo brillante que desvanece a verde */
+
+  /* Combinación exclusiva para botones del header (bordes) - Blanco y Negro */
+  --neon-glow-white-black: linear-gradient(90deg, rgba(255, 255, 255, 0.2), #FFFFFF, #000000, #FFFFFF, rgba(255, 255, 255, 0.2)); /* Blanco puro con desvanecimiento a transparente/negro */
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos Globales */
+body {
+  font-family: var(--font-poppins);
+  background: linear-gradient(190deg, var(--color-dark-bg), var(--color-medium-bg));
+  color: var(--color-light-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: var(--spacing-unit);
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Fondo de partículas (placeholder para JS) */
+#particles-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: radial-gradient(circle at center, #050510, #010106);
+}
+
+/* Neon Grid estilo Tron */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(transparent 97%, rgba(0, 255, 255, 0.15) 100%),
+    linear-gradient(90deg, transparent 97%, rgba(0, 255, 255, 0.15) 100%);
+  background-size: 50px 50px;
+  z-index: -1;
+  animation: gridMove 15s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 100px 100px, 100px 100px; }
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-header-bg);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2.2rem;
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo gradiente con glow sutil y elegante */
+.logo .pabli {
+  background: linear-gradient(45deg, var(--color-pabli-start), var(--color-pabli-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  /* Ajuste de drop-shadow para un glow más sutil y oscuro */
+  filter: drop-shadow(0 0 3px rgba(255, 153, 0, 0.4)) drop-shadow(0 0 6px rgba(255, 153, 0, 0.2));
+}
+.logo .tech {
+  background: linear-gradient(45deg, var(--color-tech-start), var(--color-tech-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 0.25rem;
+  display: inline-block;
+  /* Ajuste de drop-shadow para un glow más sutil y oscuro */
+  filter: drop-shadow(0 0 3px rgba(0, 238, 255, 0.4)) drop-shadow(0 0 6px rgba(0, 238, 255, 0.2));
+}
+
+/* Contenedor de botones en el header */
+.header-buttons {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.header-buttons .neon-btn {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Media query para botones del header en pantallas pequeñas */
+@media (max-width: 600px) {
+  .header-buttons .neon-btn {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+  }
+  .header-buttons {
+    gap: wrap;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+}
+
+/* Secciones de Contenido */
+.screen {
+  min-height: 100vh;
+  padding: 7rem 10% 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.screen p {
+  margin-top: 0.5rem;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+.screen ul {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding-left: 0;
+}
+
+.screen li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Separación para el botón "Explorar Servicios" */
+#inicio .neon-btn.blue {
+  margin-top: 2rem;
+}
+
+/* === Botones neon === */
+.neon-btn {
+  position: relative;
+  display: inline-block;
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 0.8rem 1.6rem;
+  color: #e5e5e5;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.neon-btn:hover { background: #333; transform: translateY(-2px); }
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00d4ff, #0077ff, #00d4ff);
+  background-size: 265% 135%;
+  filter: blur(6px);
+  opacity: 0.5;
+  animation: glow 6s linear infinite;
+  z-index: -1;
+}
+.neon-btn.mini { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+.neon-btn.header::before { 
+  position: wrap;
+  display: inline-block;
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 0.3rem 0.4rem;
+  color: #e5e5e5;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+@keyframes glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Menú Lateral */
+.side-menu {
+  position: fixed;
+  top: 50%;
+  right: -250px;
+  transform: translateY(-50%);
+  background: rgba(20, 20, 20, 0.95);
+  padding: 1.5rem 1rem;
+  border-radius: 12px 0 0 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 999;
+  overflow: hidden; /* Contiene los glows del menú lateral */
+}
+.side-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.side-menu.show {
+  right: 0;
+}
+
+/* Botón Flotante de Menú */
+.menu-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #222;
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--color-neon-blue-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1001;
+  animation: looper 5s infinite ease-in-out;
+}
+.menu-toggle:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px var(--color-neon-blue-main);
+}
+.menu-toggle span {
+  animation: none;
+  display: block;
+  line-height: 1;
+}
+
+/* Animación looper */
+@keyframes looper {
+  0% {
+    border-radius: 100% 100% 100% 100%;
+    border-style: dashed;
+  }
+  15% {
+    border-radius: 37% 74% 74% 37%;
+    border-color: #ae3ffd;
+  }
+  30% {
+    border-radius: 74% 74% 74% 74%;
+    border-color: #006bfd;
+  }
+  45% {
+    border-radius: 74% 37% 37% 74%;
+    border-color: #3ffd76;
+  }
+  60% {
+    border-radius: 74% 74% 74% 74%;
+    border-color: #fdfa3f;
+    border-style: dashed;
+  }
+  75% {
+    border-radius: 25%;
+    border-color: #fd2ada;
+  }
+  90% {
+    border-radius: 50%;
+    border-color: #e1fd54;
+  }
+  100% {
+    border-radius: 100% 100% 100% 100%;
+    border-style: dashed;
+  }
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-unit);
+  width: 100%;
+  max-width: 350px;
+  margin-top: 1.5rem;
+}
+input, textarea {
+  padding: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #1e1e1e;
+  color: #fff;
+  font-family: var(--font-poppins);
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-neon-blue-main);
+  box-shadow: 0 0 8px rgba(0, 119, 255, 0.4);
+}
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 0.7rem var(--spacing-unit);
+  background: rgba(17, 17, 17, 0.5);
+  font-size: 0.85rem;
+  color: var(--color-subtle-text);
+  margin-top: 15rem;
+  backdrop-filter: blur(4px);
+  position: relative;
+}
+
+/* Animación del Logo al tocar */
+.logo.animate .pabli {
+  animation: logo-reveal-pabli 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: 0.1s;
+}
+.logo.animate .tech {
+  animation: logo-reveal-tech 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes logo-reveal-pabli {
+  0% { transform: translateY(-50px) scale(0.5) rotate(-20deg); opacity: 0; }
+  60% { transform: translateY(10px) scale(1.1) rotate(5deg); opacity: 1; }
+  100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes logo-reveal-tech {
+  0% { transform: translateY(50px) scale(0.5) rotate(20deg); opacity: 0; }
+  60% { transform: translateY(-10px) scale(1.1) rotate(-5deg); opacity: 1; }
+  100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Responsive General */
+@media (max-width: 768px) {
+  h2 { font-size: 1.8rem; }
+  .screen { padding: 6rem 1rem 3rem; }
+  .side-menu {
+    right: -180px;
+    padding: 1rem 0.8rem;
+  }
+  .side-menu ul { gap: 0.8rem; }
+  .menu-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  footer {
+    margin-top: 8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header { padding: 0.8rem 1rem; }
+  .logo { font-size: 1.6rem; }
+  h2 { font-size: 1.5rem; }
+}
